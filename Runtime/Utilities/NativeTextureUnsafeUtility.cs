@@ -145,5 +145,81 @@ namespace NativeTexture.Utilities
 
       WriteArrayElement(GetUnsafePtr(texture), index, pixel);
     }
+
+    // --- NativeTexture3D ---
+
+    public static unsafe void* GetUnsafePtr<T>(this NativeTexture3D<T> texture)
+      where T : unmanaged
+    {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+      AtomicSafetyHandle.CheckWriteAndThrow(texture.m_Safety);
+#endif
+      return texture.m_Buffer;
+    }
+
+    public static unsafe void* GetUnsafePtr<T>(this UnsafeTexture3D<T> texture)
+      where T : unmanaged => texture.buffer;
+
+    public static unsafe T ReadPixel<T>(this UnsafeTexture3D<T> texture, int3 pixelCoord)
+      where T : unmanaged
+    {
+      int index = pixelCoord.ToIndex(texture.widthXHeight, texture.Width);
+      if (index < 0 || index >= texture.Length)
+        throw new ArgumentOutOfRangeException(nameof(pixelCoord), nameof(UnsafeTexture3D<T>));
+
+      return ReadArrayElement<T>(GetUnsafePtr(texture), index);
+    }
+
+    public static unsafe void WritePixel<T>(
+      ref this UnsafeTexture3D<T> texture,
+      int3 pixelCoord,
+      T pixel
+    )
+      where T : unmanaged
+    {
+      int index = pixelCoord.ToIndex(texture.widthXHeight, texture.Width);
+      if (index < 0 || index >= texture.Length)
+        throw new ArgumentOutOfRangeException(nameof(pixelCoord), nameof(UnsafeTexture3D<T>));
+
+      WriteArrayElement(GetUnsafePtr(texture), index, pixel);
+    }
+
+    // --- NativeTexture4D ---
+
+    public static unsafe void* GetUnsafePtr<T>(this NativeTexture4D<T> texture)
+      where T : unmanaged
+    {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+      AtomicSafetyHandle.CheckWriteAndThrow(texture.m_Safety);
+#endif
+      return texture.m_Buffer;
+    }
+
+    public static unsafe void* GetUnsafePtr<T>(this UnsafeTexture4D<T> texture)
+      where T : unmanaged => texture.buffer;
+
+    public static unsafe T ReadPixel<T>(this UnsafeTexture4D<T> texture, int4 pixelCoord)
+      where T : unmanaged
+    {
+      int index = pixelCoord.ToIndex(texture.widthXHeightXDepth, texture.widthXHeight, texture.Width);
+      if (index < 0 || index >= texture.Length)
+        throw new ArgumentOutOfRangeException(nameof(pixelCoord), nameof(UnsafeTexture4D<T>));
+
+      return ReadArrayElement<T>(GetUnsafePtr(texture), index);
+    }
+
+    public static unsafe void WritePixel<T>(
+      ref this UnsafeTexture4D<T> texture,
+      int4 pixelCoord,
+      T pixel
+    )
+      where T : unmanaged
+    {
+      int index = pixelCoord.ToIndex(texture.widthXHeightXDepth, texture.widthXHeight, texture.Width);
+      if (index < 0 || index >= texture.Length)
+        throw new ArgumentOutOfRangeException(nameof(pixelCoord), nameof(UnsafeTexture4D<T>));
+
+      WriteArrayElement(GetUnsafePtr(texture), index, pixel);
+    }
   }
 }
