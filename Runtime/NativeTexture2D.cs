@@ -311,7 +311,7 @@ namespace NativeTexture
       [MethodImpl(MethodImplOptions.AggressiveInlining)]
       get
       {
-        int index = coord.ToIndex(Width, Height, MipCount);
+        int index = coord.ToIndex(Width * Height, Width);
         CheckElementReadAccess(index);
         return ReadArrayElement<T>(m_Buffer, index);
       }
@@ -319,7 +319,7 @@ namespace NativeTexture
       [MethodImpl(MethodImplOptions.AggressiveInlining)]
       set
       {
-        int index = coord.ToIndex(Width, Height, MipCount);
+        int index = coord.ToIndex(Width * Height, Width);
         CheckElementWriteAccess(index);
         WriteArrayElement(m_Buffer, index, value);
       }

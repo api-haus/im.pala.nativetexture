@@ -61,9 +61,5 @@ namespace NativeTexture.Utilities
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static int ToIndex(this int2 id, int width) => (id.y * width) + id.x;
 
-    public static int ToIndex(this int3 idMip, int width, int height, int mipLevels)
-    {
-      throw new System.NotImplementedException();
-    }
   }
 }

@@ -171,7 +171,7 @@ namespace NativeTexture
     private static void InitStaticSafetyId(ref AtomicSafetyHandle handle)
     {
       if (s_staticSafetyId.Data == 0)
-        s_staticSafetyId.Data = AtomicSafetyHandle.NewStaticSafetyId<NativeTexture2D<T>>();
+        s_staticSafetyId.Data = AtomicSafetyHandle.NewStaticSafetyId<NativeTexture3D<T>>();
 
       AtomicSafetyHandle.SetStaticSafetyId(ref handle, s_staticSafetyId.Data);
     }
