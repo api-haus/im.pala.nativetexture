@@ -714,6 +714,471 @@ namespace NativeTexture.Extensions
       );
     }
 
+    // sbyte2
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<sbyte2> tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x2 samples
+    )
+    {
+      sbyte2 s1 = tex2D[pixelFloorCeil.xy];
+      sbyte2 s2 = tex2D[pixelFloorCeil.xw];
+      sbyte2 s3 = tex2D[pixelFloorCeil.zy];
+      sbyte2 s4 = tex2D[pixelFloorCeil.zw];
+
+      float2 f1 = s1;
+      float2 f2 = s2;
+      float2 f3 = s3;
+      float2 f4 = s4;
+
+      samples = math.float4x2(
+        math.float4(f1.x, f2.x, f3.x, f4.x),
+        math.float4(f1.y, f2.y, f3.y, f4.y)
+      );
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<sbyte2>.ReadOnly tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x2 samples
+    )
+    {
+      sbyte2 s1 = tex2D[pixelFloorCeil.xy];
+      sbyte2 s2 = tex2D[pixelFloorCeil.xw];
+      sbyte2 s3 = tex2D[pixelFloorCeil.zy];
+      sbyte2 s4 = tex2D[pixelFloorCeil.zw];
+
+      float2 f1 = s1;
+      float2 f2 = s2;
+      float2 f3 = s3;
+      float2 f4 = s4;
+
+      samples = math.float4x2(
+        math.float4(f1.x, f2.x, f3.x, f4.x),
+        math.float4(f1.y, f2.y, f3.y, f4.y)
+      );
+    }
+
+    // short2
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<short2> tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x2 samples
+    )
+    {
+      short2 s1 = tex2D[pixelFloorCeil.xy];
+      short2 s2 = tex2D[pixelFloorCeil.xw];
+      short2 s3 = tex2D[pixelFloorCeil.zy];
+      short2 s4 = tex2D[pixelFloorCeil.zw];
+
+      float2 f1 = s1;
+      float2 f2 = s2;
+      float2 f3 = s3;
+      float2 f4 = s4;
+
+      samples = math.float4x2(
+        math.float4(f1.x, f2.x, f3.x, f4.x),
+        math.float4(f1.y, f2.y, f3.y, f4.y)
+      );
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<short2>.ReadOnly tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x2 samples
+    )
+    {
+      short2 s1 = tex2D[pixelFloorCeil.xy];
+      short2 s2 = tex2D[pixelFloorCeil.xw];
+      short2 s3 = tex2D[pixelFloorCeil.zy];
+      short2 s4 = tex2D[pixelFloorCeil.zw];
+
+      float2 f1 = s1;
+      float2 f2 = s2;
+      float2 f3 = s3;
+      float2 f4 = s4;
+
+      samples = math.float4x2(
+        math.float4(f1.x, f2.x, f3.x, f4.x),
+        math.float4(f1.y, f2.y, f3.y, f4.y)
+      );
+    }
+
+    // float2
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<float2> tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x2 samples
+    )
+    {
+      float2 f1 = tex2D[pixelFloorCeil.xy];
+      float2 f2 = tex2D[pixelFloorCeil.xw];
+      float2 f3 = tex2D[pixelFloorCeil.zy];
+      float2 f4 = tex2D[pixelFloorCeil.zw];
+
+      samples = math.float4x2(
+        math.float4(f1.x, f2.x, f3.x, f4.x),
+        math.float4(f1.y, f2.y, f3.y, f4.y)
+      );
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<float2>.ReadOnly tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x2 samples
+    )
+    {
+      float2 f1 = tex2D[pixelFloorCeil.xy];
+      float2 f2 = tex2D[pixelFloorCeil.xw];
+      float2 f3 = tex2D[pixelFloorCeil.zy];
+      float2 f4 = tex2D[pixelFloorCeil.zw];
+
+      samples = math.float4x2(
+        math.float4(f1.x, f2.x, f3.x, f4.x),
+        math.float4(f1.y, f2.y, f3.y, f4.y)
+      );
+    }
+
+    // sbyte3
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<sbyte3> tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x3 samples
+    )
+    {
+      sbyte3 s1 = tex2D[pixelFloorCeil.xy];
+      sbyte3 s2 = tex2D[pixelFloorCeil.xw];
+      sbyte3 s3 = tex2D[pixelFloorCeil.zy];
+      sbyte3 s4 = tex2D[pixelFloorCeil.zw];
+
+      float3 f1 = s1;
+      float3 f2 = s2;
+      float3 f3 = s3;
+      float3 f4 = s4;
+
+      samples = new float4x3(
+        f1.x,
+        f2.x,
+        f3.x,
+        f4.x,
+        f1.y,
+        f2.y,
+        f3.y,
+        f4.y,
+        f1.z,
+        f2.z,
+        f3.z,
+        f4.z
+      );
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<sbyte3>.ReadOnly tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x3 samples
+    )
+    {
+      sbyte3 s1 = tex2D[pixelFloorCeil.xy];
+      sbyte3 s2 = tex2D[pixelFloorCeil.xw];
+      sbyte3 s3 = tex2D[pixelFloorCeil.zy];
+      sbyte3 s4 = tex2D[pixelFloorCeil.zw];
+
+      float3 f1 = s1;
+      float3 f2 = s2;
+      float3 f3 = s3;
+      float3 f4 = s4;
+
+      samples = new float4x3(
+        f1.x,
+        f2.x,
+        f3.x,
+        f4.x,
+        f1.y,
+        f2.y,
+        f3.y,
+        f4.y,
+        f1.z,
+        f2.z,
+        f3.z,
+        f4.z
+      );
+    }
+
+    // short3
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<short3> tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x3 samples
+    )
+    {
+      short3 s1 = tex2D[pixelFloorCeil.xy];
+      short3 s2 = tex2D[pixelFloorCeil.xw];
+      short3 s3 = tex2D[pixelFloorCeil.zy];
+      short3 s4 = tex2D[pixelFloorCeil.zw];
+
+      float3 f1 = s1;
+      float3 f2 = s2;
+      float3 f3 = s3;
+      float3 f4 = s4;
+
+      samples = new float4x3(
+        f1.x,
+        f2.x,
+        f3.x,
+        f4.x,
+        f1.y,
+        f2.y,
+        f3.y,
+        f4.y,
+        f1.z,
+        f2.z,
+        f3.z,
+        f4.z
+      );
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<short3>.ReadOnly tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x3 samples
+    )
+    {
+      short3 s1 = tex2D[pixelFloorCeil.xy];
+      short3 s2 = tex2D[pixelFloorCeil.xw];
+      short3 s3 = tex2D[pixelFloorCeil.zy];
+      short3 s4 = tex2D[pixelFloorCeil.zw];
+
+      float3 f1 = s1;
+      float3 f2 = s2;
+      float3 f3 = s3;
+      float3 f4 = s4;
+
+      samples = new float4x3(
+        f1.x,
+        f2.x,
+        f3.x,
+        f4.x,
+        f1.y,
+        f2.y,
+        f3.y,
+        f4.y,
+        f1.z,
+        f2.z,
+        f3.z,
+        f4.z
+      );
+    }
+
+    // float3
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<float3> tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x3 samples
+    )
+    {
+      float3 f1 = tex2D[pixelFloorCeil.xy];
+      float3 f2 = tex2D[pixelFloorCeil.xw];
+      float3 f3 = tex2D[pixelFloorCeil.zy];
+      float3 f4 = tex2D[pixelFloorCeil.zw];
+
+      samples = new float4x3(
+        f1.x,
+        f2.x,
+        f3.x,
+        f4.x,
+        f1.y,
+        f2.y,
+        f3.y,
+        f4.y,
+        f1.z,
+        f2.z,
+        f3.z,
+        f4.z
+      );
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<float3>.ReadOnly tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x3 samples
+    )
+    {
+      float3 f1 = tex2D[pixelFloorCeil.xy];
+      float3 f2 = tex2D[pixelFloorCeil.xw];
+      float3 f3 = tex2D[pixelFloorCeil.zy];
+      float3 f4 = tex2D[pixelFloorCeil.zw];
+
+      samples = new float4x3(
+        f1.x,
+        f2.x,
+        f3.x,
+        f4.x,
+        f1.y,
+        f2.y,
+        f3.y,
+        f4.y,
+        f1.z,
+        f2.z,
+        f3.z,
+        f4.z
+      );
+    }
+
+    // sbyte4
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<sbyte4> tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x4 samples
+    )
+    {
+      sbyte4 s1 = tex2D[pixelFloorCeil.xy];
+      sbyte4 s2 = tex2D[pixelFloorCeil.xw];
+      sbyte4 s3 = tex2D[pixelFloorCeil.zy];
+      sbyte4 s4 = tex2D[pixelFloorCeil.zw];
+
+      float4 f1 = s1;
+      float4 f2 = s2;
+      float4 f3 = s3;
+      float4 f4 = s4;
+
+      samples = new float4x4(
+        math.float4(f1.x, f2.x, f3.x, f4.x),
+        math.float4(f1.y, f2.y, f3.y, f4.y),
+        math.float4(f1.z, f2.z, f3.z, f4.z),
+        math.float4(f1.w, f2.w, f3.w, f4.w)
+      );
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<sbyte4>.ReadOnly tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x4 samples
+    )
+    {
+      sbyte4 s1 = tex2D[pixelFloorCeil.xy];
+      sbyte4 s2 = tex2D[pixelFloorCeil.xw];
+      sbyte4 s3 = tex2D[pixelFloorCeil.zy];
+      sbyte4 s4 = tex2D[pixelFloorCeil.zw];
+
+      float4 f1 = s1;
+      float4 f2 = s2;
+      float4 f3 = s3;
+      float4 f4 = s4;
+
+      samples = new float4x4(
+        math.float4(f1.x, f2.x, f3.x, f4.x),
+        math.float4(f1.y, f2.y, f3.y, f4.y),
+        math.float4(f1.z, f2.z, f3.z, f4.z),
+        math.float4(f1.w, f2.w, f3.w, f4.w)
+      );
+    }
+
+    // short4
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<short4> tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x4 samples
+    )
+    {
+      short4 s1 = tex2D[pixelFloorCeil.xy];
+      short4 s2 = tex2D[pixelFloorCeil.xw];
+      short4 s3 = tex2D[pixelFloorCeil.zy];
+      short4 s4 = tex2D[pixelFloorCeil.zw];
+
+      float4 f1 = s1;
+      float4 f2 = s2;
+      float4 f3 = s3;
+      float4 f4 = s4;
+
+      samples = new float4x4(
+        math.float4(f1.x, f2.x, f3.x, f4.x),
+        math.float4(f1.y, f2.y, f3.y, f4.y),
+        math.float4(f1.z, f2.z, f3.z, f4.z),
+        math.float4(f1.w, f2.w, f3.w, f4.w)
+      );
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<short4>.ReadOnly tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x4 samples
+    )
+    {
+      short4 s1 = tex2D[pixelFloorCeil.xy];
+      short4 s2 = tex2D[pixelFloorCeil.xw];
+      short4 s3 = tex2D[pixelFloorCeil.zy];
+      short4 s4 = tex2D[pixelFloorCeil.zw];
+
+      float4 f1 = s1;
+      float4 f2 = s2;
+      float4 f3 = s3;
+      float4 f4 = s4;
+
+      samples = new float4x4(
+        math.float4(f1.x, f2.x, f3.x, f4.x),
+        math.float4(f1.y, f2.y, f3.y, f4.y),
+        math.float4(f1.z, f2.z, f3.z, f4.z),
+        math.float4(f1.w, f2.w, f3.w, f4.w)
+      );
+    }
+
+    // float4
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<float4> tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x4 samples
+    )
+    {
+      float4 f1 = tex2D[pixelFloorCeil.xy];
+      float4 f2 = tex2D[pixelFloorCeil.xw];
+      float4 f3 = tex2D[pixelFloorCeil.zy];
+      float4 f4 = tex2D[pixelFloorCeil.zw];
+
+      samples = new float4x4(
+        math.float4(f1.x, f2.x, f3.x, f4.x),
+        math.float4(f1.y, f2.y, f3.y, f4.y),
+        math.float4(f1.z, f2.z, f3.z, f4.z),
+        math.float4(f1.w, f2.w, f3.w, f4.w)
+      );
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static void BilinearSamples(
+      this NativeTexture2D<float4>.ReadOnly tex2D,
+      ref int4 pixelFloorCeil,
+      out float4x4 samples
+    )
+    {
+      float4 f1 = tex2D[pixelFloorCeil.xy];
+      float4 f2 = tex2D[pixelFloorCeil.xw];
+      float4 f3 = tex2D[pixelFloorCeil.zy];
+      float4 f4 = tex2D[pixelFloorCeil.zw];
+
+      samples = new float4x4(
+        math.float4(f1.x, f2.x, f3.x, f4.x),
+        math.float4(f1.y, f2.y, f3.y, f4.y),
+        math.float4(f1.z, f2.z, f3.z, f4.z),
+        math.float4(f1.w, f2.w, f3.w, f4.w)
+      );
+    }
+
     // Bilinear interpolation for float4x4 (used with byte4 and ushort4)
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static float4 BilinearInterpolation(ref float4x4 samples, ref float2 ratio)

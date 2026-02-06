@@ -5,10 +5,12 @@ namespace NativeTexture.Formats
   using System;
   using System.Diagnostics;
   using System.Runtime.CompilerServices;
+  using System.Runtime.InteropServices;
   using Unity.Mathematics;
 
   // ReSharper disable once InconsistentNaming
   [Serializable]
+  [StructLayout(LayoutKind.Sequential)]
   [DebuggerTypeProxy(typeof(DebuggerProxy))]
 #pragma warning disable IDE1006 // Naming Styles
   public struct byte2 : IEquatable<byte2>

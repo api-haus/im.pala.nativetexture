@@ -321,6 +321,195 @@ namespace NativeTexture.Extensions
       return BilinearInterpolation(ref samples, ref ratio);
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float2 ReadPixelBilinear(this NativeTexture2D<sbyte2> tex2D, float2 pixelCoord)
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x2 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float2 ReadPixelBilinear(
+      this NativeTexture2D<sbyte2>.ReadOnly tex2D,
+      float2 pixelCoord
+    )
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x2 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float3 ReadPixelBilinear(this NativeTexture2D<sbyte3> tex2D, float2 pixelCoord)
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x3 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float3 ReadPixelBilinear(
+      this NativeTexture2D<sbyte3>.ReadOnly tex2D,
+      float2 pixelCoord
+    )
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x3 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float4 ReadPixelBilinear(this NativeTexture2D<sbyte4> tex2D, float2 pixelCoord)
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x4 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float4 ReadPixelBilinear(
+      this NativeTexture2D<sbyte4>.ReadOnly tex2D,
+      float2 pixelCoord
+    )
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x4 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float2 ReadPixelBilinear(this NativeTexture2D<short2> tex2D, float2 pixelCoord)
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x2 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float2 ReadPixelBilinear(
+      this NativeTexture2D<short2>.ReadOnly tex2D,
+      float2 pixelCoord
+    )
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x2 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float3 ReadPixelBilinear(this NativeTexture2D<short3> tex2D, float2 pixelCoord)
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x3 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float3 ReadPixelBilinear(
+      this NativeTexture2D<short3>.ReadOnly tex2D,
+      float2 pixelCoord
+    )
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x3 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float4 ReadPixelBilinear(this NativeTexture2D<short4> tex2D, float2 pixelCoord)
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x4 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float4 ReadPixelBilinear(
+      this NativeTexture2D<short4>.ReadOnly tex2D,
+      float2 pixelCoord
+    )
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x4 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float2 ReadPixelBilinear(this NativeTexture2D<float2> tex2D, float2 pixelCoord)
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x2 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float2 ReadPixelBilinear(
+      this NativeTexture2D<float2>.ReadOnly tex2D,
+      float2 pixelCoord
+    )
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x2 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float3 ReadPixelBilinear(this NativeTexture2D<float3> tex2D, float2 pixelCoord)
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x3 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float3 ReadPixelBilinear(
+      this NativeTexture2D<float3>.ReadOnly tex2D,
+      float2 pixelCoord
+    )
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x3 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float4 ReadPixelBilinear(this NativeTexture2D<float4> tex2D, float2 pixelCoord)
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x4 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float4 ReadPixelBilinear(
+      this NativeTexture2D<float4>.ReadOnly tex2D,
+      float2 pixelCoord
+    )
+    {
+      PixelCoord(tex2D, ref pixelCoord);
+      PixelFloorCeil(pixelCoord, out int4 pixelFloorCeil, out float2 ratio);
+      BilinearSamples(tex2D, ref pixelFloorCeil, out float4x4 samples);
+      return BilinearInterpolation(ref samples, ref ratio);
+    }
+
     /// <summary>
     /// Generic method to read pixel value at the specified normalized floating-point coordinate using bilinear interpolation.
     /// </summary>
