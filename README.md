@@ -6,10 +6,10 @@
 
 ## Features
 
-- **Native Containers**: `NativeTexture2D<T>`, `NativeTexture3D<T>` — own a raw buffer or wrap an existing `Texture2D`
-- **Unsafe Variant**: `UnsafeTexture2D<T>` — minimal-overhead access with bounds-checked `TryRead`/`TryWrite`
+- **Native Containers**: `NativeTexture2D<T>`, `NativeTexture3D<T>`, `NativeTexture4D<T>` — own a raw buffer or wrap an existing `Texture2D`
+- **Unsafe Variants**: `UnsafeTexture2D<T>`, `UnsafeTexture3D<T>`, `UnsafeTexture4D<T>` — minimal-overhead access with bounds-checked `TryRead`/`TryWrite`
 - **Format Types**: `byte2/3/4`, `sbyte2/3/4`, `short2/3/4`, `ushort2/3/4` with operator overloads, `FromNormalized()`/`ToNormalized()`, and swizzle properties
-- **Read-Only Views**: `.AsReadOnly()` on both 2D and 3D containers
+- **Read-Only Views**: `.AsReadOnly()` on 2D, 3D, and 4D containers
 - **Normalization**: Burst-compiled `NormalizeTextureJob` for `[min,max]` → `[0,1]` remapping
 - **Sampling Extensions**: `ReadPixel`, `ReadPixelBilinear`, `Contains`, `Swap`
 - **Utilities**: `MipUtility`, `NativeTextureUnsafeUtility`, `IndexCoordUtils`, `TextureBoundsUtility`
@@ -101,11 +101,40 @@ var voxels = new NativeTexture3D<float>(unityTexture, new int3(64, 64, 64));
 **Disposal:**
 - `Dispose()` / `Dispose(JobHandle)`
 
-### UnsafeTexture2D\<T\>
+### NativeTexture4D\<T\>
 
 Namespace: `NativeTexture`
 
-Minimal-overhead variant with no safety handles. Created from an existing `NativeTexture2D<T>`.
+4D native container for noise fields, animation volumes, parameterized textures, etc.
+
+**Construction:**
+```csharp
+var volume = new NativeTexture4D<float>(new int4(32, 32, 32, 8), Allocator.Persistent);
+```
+
+**Properties:** `Width`, `Height`, `Depth`, `WSize`, `Resolution` (int4), `Length`, `TexelSize`, `IsCreated`
+
+**Access:**
+- Indexers: `texture[int index]`, `texture[int4 coord]`
+- `Load(int4 coord)`, `Load(int index, out int4 coord)`
+- `AsArray()` — returns `NativeArray<T>`
+- `GetUnsafePtr()` / `GetUnsafeReadOnlyPtr()`
+- `AsReadOnly()` — returns `NativeTexture4D<T>.ReadOnly`
+
+**Disposal:**
+- `Dispose()` / `Dispose(JobHandle)`
+
+### Unsafe Texture Variants
+
+Namespace: `NativeTexture`
+
+Minimal-overhead variants with no safety handles. Created from their corresponding native container via factory methods. All provide bounds-checked `TryRead`/`TryWrite`.
+
+| Type | Factory | Coordinate |
+|---|---|---|
+| `UnsafeTexture2D<T>` | `UnsafeTexture2DFactory.FromNativeTexture(native2D)` | `int2` |
+| `UnsafeTexture3D<T>` | `UnsafeTexture3DFactory.FromNativeTexture(native3D)` | `int3` |
+| `UnsafeTexture4D<T>` | `UnsafeTexture4DFactory.FromNativeTexture(native4D)` | `int4` |
 
 ```csharp
 var native = new NativeTexture2D<float>(new int2(256, 256), Allocator.TempJob);
@@ -117,7 +146,7 @@ if (unsafeTex.TryRead(new int2(10, 20), out float value))
 unsafeTex.TryWrite(new int2(10, 20), in someValue);
 ```
 
-**Properties:** `Width`, `Height`, `Length`, `IsCreated`
+**Common properties:** `Width`, `Height`, `Length`, `IsCreated` (3D adds `Depth`; 4D adds `Depth`, `WSize`)
 
 ---
 
