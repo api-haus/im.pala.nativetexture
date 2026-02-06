@@ -1,8 +1,9 @@
 {
-	"displayName": "Native Texture",
-	"name": "native-texture",
-	"version": "0.1.0",
-	"description": "Texture for Native Collections",
+	"name": "im.pala.nativetexture",
+	"displayName": "NativeTexture",
+	"version": "1.0.0",
+	"description": "Native texture containers for Unity's job system and Burst compiler",
+	"hideInEditor": false,
 	"dependencies": {
 		"com.unity.collections": "2.6.3",
 		"com.unity.mathematics": "1.3.3"

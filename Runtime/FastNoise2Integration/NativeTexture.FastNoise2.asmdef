@@ -1,0 +1,25 @@
+{
+	"name": "NativeTexture.FastNoise2",
+	"rootNamespace": "NativeTexture.FastNoise2",
+	"references": [
+		"GUID:ba5111761239d3b4684bc4f990eb32c5",
+		"GUID:469a0115744024da8b8d27b5b1d7fe31",
+		"GUID:2665a8d13d1b3f18800f46e256720795",
+		"GUID:e0cd26848372d4e5c891c569017e11f1",
+		"GUID:d8b63aba1907145bea998dd612889d6b"
+	],
+	"includePlatforms": [],
+	"excludePlatforms": [],
+	"allowUnsafeCode": true,
+	"autoReferenced": false,
+	"defineConstraints": [
+		"HAS_FASTNOISE2"
+	],
+	"versionDefines": [
+		{
+			"name": "com.auburn.fastnoise2",
+			"expression": "",
+			"define": "HAS_FASTNOISE2"
+		}
+	]
+}

@@ -1,40 +1,31 @@
 namespace NativeTexture.Utilities
 {
-	using Unity.Collections;
+  using Jobs;
+  using Unity.Jobs;
 
-	/// <summary>
-	/// Utility methods for working with texture value bounds and normalization.
-	/// </summary>
-	public static class TextureBoundsUtility
-	{
-		/// <summary>
-		/// Creates a new value bounds reference initialized to extreme values for tracking.
-		/// </summary>
-		/// <param name="allocator">The allocator to use for the reference.</param>
-		/// <returns>A NativeReference containing initialized value bounds.</returns>
-		public static NativeReference<ValueBounds> CreateValueBounds(Allocator allocator)
-		{
-			NativeReference<ValueBounds> boundsRef = new(allocator);
-			boundsRef.Reset();
-			return boundsRef;
-		}
+  /// <summary>
+  /// Utility methods for normalizing texture data.
+  /// </summary>
+  public static class TextureBoundsUtility
+  {
+    /// <summary>
+    /// Schedules a normalization job that maps values from [min, max] to [0, 1].
+    /// </summary>
+    public static JobHandle ScheduleNormalize(
+      this NativeTexture2D<float> texture,
+      float min,
+      float max,
+      JobHandle dependency = default
+    ) => NormalizeTextureJob.Schedule(texture, min, max, dependency);
 
-		/// <summary>
-		/// Sets explicit bounds values.
-		/// </summary>
-		/// <param name="boundsRef">The bounds reference to modify.</param>
-		/// <param name="min">The minimum value to set.</param>
-		/// <param name="max">The maximum value to set.</param>
-		public static void SetExplicitBounds(
-			NativeReference<ValueBounds> boundsRef,
-			float min,
-			float max
-		)
-		{
-			ValueBounds bounds = boundsRef.Value;
-			bounds.Min = min;
-			bounds.Max = max;
-			boundsRef.Value = bounds;
-		}
-	}
+    /// <summary>
+    /// Schedules a normalization job that maps values from [min, max] to [0, 1].
+    /// </summary>
+    public static JobHandle ScheduleNormalize(
+      this NativeTexture3D<float> texture,
+      float min,
+      float max,
+      JobHandle dependency = default
+    ) => NormalizeTextureJob.Schedule(texture, min, max, dependency);
+  }
 }
