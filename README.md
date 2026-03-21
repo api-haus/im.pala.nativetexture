@@ -1,6 +1,6 @@
 # NativeTexture
 
-`im.pala.nativetexture` is a Unity package that provides Burst/job-friendly native containers over texture memory with direct pointer access. It enables high-performance CPU-side texture generation, processing, and efficient upload to Unity `Texture2D` or GPU buffers without unnecessary copies.
+`com.api-haus.native-texture` is a Unity package that provides Burst/job-friendly native containers over texture memory with direct pointer access. It enables high-performance CPU-side texture generation, processing, and efficient upload to Unity `Texture2D` or GPU buffers without unnecessary copies.
 
 ---
 
@@ -19,6 +19,12 @@
 
 ## Installation
 
+### Via OpenUPM (recommended)
+
+```bash
+openupm add com.api-haus.native-texture
+```
+
 ### Via Unity Package Manager (UPM)
 
 1. Open Unity and navigate to `Window → Package Manager`.
@@ -26,7 +32,7 @@
 3. Paste the following URL and click `Add`:
 
 ```
-https://github.com/api-haus/im.pala.nativetexture.git
+https://github.com/api-haus/com.api-haus.native-texture.git
 ```
 
 ### Dependencies
@@ -214,7 +220,7 @@ tex.Swap(index1, index2);
 
 ## FastNoise2 Integration
 
-Assembly: `NativeTexture.FastNoise2` — auto-compiles when [`com.auburn.fastnoise2`](https://github.com/api-haus/com.auburn.fastnoise2) is present (via `versionDefines` → `HAS_FASTNOISE2`).
+Assembly: `NativeTexture.FastNoise2` — auto-compiles when [`com.api-haus.fastnoise2`](https://github.com/api-haus/com.api-haus.fastnoise2) is present (via `versionDefines` → `HAS_FASTNOISE2`).
 
 Namespace: `NativeTexture.FastNoise2`
 
@@ -341,7 +347,7 @@ float sample = tex.ReadPixelBilinear(new float2(0.3f, 0.6f));
 - When wrapping an existing `Texture2D`, memory ownership remains with Unity; dispose only buffers you own.
 - Burst/jobs ready: safety handles and min/max index constraints; `Dispose(JobHandle)` is available for scheduled cleanup.
 - Both runtime assemblies have `autoReferenced: false` — consumers must add explicit assembly references.
-- `NativeTexture.FastNoise2` assembly uses `defineConstraints: ["HAS_FASTNOISE2"]` and `versionDefines` to auto-compile only when `com.auburn.fastnoise2` is present.
+- `NativeTexture.FastNoise2` assembly uses `defineConstraints: ["HAS_FASTNOISE2"]` and `versionDefines` to auto-compile only when `com.api-haus.fastnoise2` is present.
 
 ---
 
@@ -352,4 +358,4 @@ float sample = tex.ReadPixelBilinear(new float2(0.3f, 0.6f));
 | `NativeTexture` | `Runtime/NativeTexture.asmdef` | Core containers, formats, jobs, sampling |
 | `NativeTexture.FastNoise2` | `Runtime/FastNoise2Integration/NativeTexture.FastNoise2.asmdef` | FN2 bridge, requires `HAS_FASTNOISE2` |
 
-Submodule path: `Packages/im.pala.nativetexture`
+Submodule path: `Packages/com.api-haus.native-texture`

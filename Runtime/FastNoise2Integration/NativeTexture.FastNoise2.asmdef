@@ -17,7 +17,7 @@
 	],
 	"versionDefines": [
 		{
-			"name": "com.auburn.fastnoise2",
+			"name": "com.api-haus.fastnoise2",
 			"expression": "",
 			"define": "HAS_FASTNOISE2"
 		}
